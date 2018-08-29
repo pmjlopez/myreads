@@ -2,7 +2,13 @@ import React from 'react';
 import BookShelf from './BookShelf';
 
 const List = (props) => {
-    const { onChangeShelf, books } = props;
+    const CURRENTLY_READING = 'currentlyReading'
+    const WANT_TO_READ = 'wantToRead'
+    const READ = 'read'
+
+    const { onChangeShelf, books, getBook } = props;
+
+    const filterBy = (shelf) => books.filter(book => book.shelf === shelf)
 
     return(
         <div className="list-books">
@@ -14,17 +20,20 @@ const List = (props) => {
                     <BookShelf
                         title='Currently Reading'
                         onChangeShelf={onChangeShelf}
-                        books={books.filter(book => book.shelf === 'currentlyReading')}
+                        getBook={getBook}
+                        books={filterBy(CURRENTLY_READING)}
                     />
                     <BookShelf
                         title='Want to Read'
                         onChangeShelf={onChangeShelf}
-                        books={books.filter(book => book.shelf === 'wantToRead')}
+                        getBook={getBook}
+                        books={filterBy(WANT_TO_READ)}
                     />
                     <BookShelf
                         title='Read'
                         onChangeShelf={onChangeShelf}
-                        books={books.filter(book => book.shelf === 'read')}
+                        getBook={getBook}
+                        books={filterBy(READ)}
                     />
                 </div>
             </div>
