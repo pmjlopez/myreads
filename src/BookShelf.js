@@ -2,7 +2,7 @@ import React from 'react';
 import Book from './Book';
 
 const BookShelf = (props) => {
-    const { onChangeShelf, books, title } = props;
+    const { onChangeShelf, books, title, getBook } = props;
     return(
         <div className="bookshelf">
             <h2 className="bookshelf-title">{title}</h2>
@@ -12,6 +12,7 @@ const BookShelf = (props) => {
                         <li key={book.id}>
                             <Book
                                 book={book}
+                                getBook={getBook}
                                 onChangeShelf={onChangeShelf}
                             />
                         </li>

@@ -7,7 +7,8 @@ class Search extends Component {
             books,
             handleOnChange,
             handleSubmit,
-            onChangeShelf
+            onChangeShelf,
+            getBook
         } = this.props;
         return(
             <div className="search-books">
@@ -28,7 +29,9 @@ class Search extends Component {
                             <li key={book.id}>
                                 <Book
                                     onChangeShelf={onChangeShelf}
-                                    book={book}/>
+                                    book={book}
+                                    getBook={getBook}
+                                />
                             </li>
                         ))}
                     </ol>
