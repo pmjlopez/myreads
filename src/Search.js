@@ -20,6 +20,7 @@ class Search extends Component {
                             name='query'
                             placeholder="Search by title or author"
                             onChange={handleOnChange}
+                            autoFocus
                         />
                     </div>
                 </form>
